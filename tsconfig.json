@@ -17,7 +17,7 @@
     // 启用所有的严格检查
     "strict": true,
     // 忽略因为类型为 “string“ 的表达式不能用于索引类型 “Object“
-    "suppressImplicitAnyIndexErrors": true,           
+    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,     
     "esModuleInterop": true,                  
     "skipLibCheck": false,                    
