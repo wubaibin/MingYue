@@ -20,6 +20,7 @@ export default (props: any) => {
       <View style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>基础组件</Text>
         <List title="Button" onPress={() => { handleList("ButtonPage") }}></List>
+        <List title="Icon 图标" onPress={() => { handleList("IconPage") }}></List>
       </View>
     </View>
   )

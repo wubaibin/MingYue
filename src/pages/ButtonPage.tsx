@@ -4,7 +4,7 @@
  * @Autor: wubaibin
  * @Date: 2022-12-07 17:08:42
  * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-08 10:04:40
+ * @LastEditTime: 2022-12-08 10:16:46
  */
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
@@ -16,7 +16,7 @@ export default (props: any) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <NavBar title={'Button'}></NavBar>
-      <ScrollView style={{ paddingHorizontal: 18, width: '100%' }}>
+      <ScrollView style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>按钮尺寸</Text>
         <Button size="mini" style={styles.btn}>小按钮</Button>
         <Button size="medium" style={styles.btn}>中按钮</Button>

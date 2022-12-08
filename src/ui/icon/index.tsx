@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0.0
+ * @Autor: wubaibin
+ * @Date: 2022-12-07 14:42:34
+ * @LastEditors: wubaibin
+ * @LastEditTime: 2022-12-08 10:18:50
+ */
 /**
  * @description: 图标
  * @author: wubaibin
@@ -14,7 +22,7 @@ interface Props {
   style?: object;
 }
 export default (props: Props) => {
-  const { name, size = 10, color = Color.theme, style = {} } = props;
+  const { name, size = 16, color = Color.theme, style = {} } = props;
   return (
     <View style={{ ...style  }}>
       <Text style={{ fontFamily: 'iconfont', fontSize: size, color }}>{iconNames[name]}</Text>
