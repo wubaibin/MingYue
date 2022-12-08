@@ -1,20 +1,14 @@
-/*
- * @Description: 
- * @Version: 1.0.0
- * @Autor: wubaibin
- * @Date: 2022-12-07 17:08:42
- * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-08 10:16:46
- */
-import { Text, StyleSheet, View, ScrollView } from "react-native";
+import { Text, StyleSheet, View, ScrollView, Image } from "react-native";
 import React, { useState, useEffect } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import Button from "../ui/Button";
 
 export default (props: any) => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff', paddingBottom: insets.bottom }}>
       <NavBar title={'Button'}></NavBar>
       <ScrollView style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>按钮尺寸</Text>
@@ -37,6 +31,11 @@ export default (props: any) => {
         <Text style={Title}>自定义按钮长宽 字体大小 背景颜色</Text>
         <Button width={200} height={50} fontSize={20} bgColor="red" style={styles.btn}>自定义按钮</Button>
         <Button plain width={200} height={50} fontSize={20} borderColor="red" color="red" style={styles.btn}>自定义按钮</Button>
+        <Text style={Title}>插槽按钮</Text>
+        <Button size="large" style={styles.btn}>
+          <Image source={require("../assets/images/pic.png")} style={{ width: 20, height: 20 }}></Image>
+          <Text style={{ fontSize: 16, color: '#fff', marginLeft: 8 }}>插槽按钮</Text>
+        </Button>
       </ScrollView>
     </View>
   )
