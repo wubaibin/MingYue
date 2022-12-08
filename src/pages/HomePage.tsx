@@ -11,7 +11,6 @@ export default (props: any) => {
   }, [])
   const { title } = props.route.params;
   const handleList = (path: string) => {
-    console.log('aaa');
     Route.navigate(path);
   }
   return (

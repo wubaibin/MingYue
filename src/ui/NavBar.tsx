@@ -3,7 +3,7 @@
  * @author: wubaibin
  */
 import { Text, StyleSheet, View, StatusBar, Image, TouchableOpacity } from "react-native";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Color, Config } from "./utils/config";
 import StringRegular from './utils/string';
