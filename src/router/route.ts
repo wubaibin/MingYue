@@ -1,10 +1,14 @@
 /*
- * @Description: 路由跳转
+ * @Description: 
  * @Version: 1.0.0
  * @Autor: wubaibin
- * @Date: 2022-02-23 18:27:19
+ * @Date: 2022-12-06 17:46:22
  * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-06 17:53:50
+ * @LastEditTime: 2022-12-07 17:16:40
+ */
+/**
+ * @description: App路由跳转
+ * @author: wubaibin
  */
 import { StackActions } from '@react-navigation/native'
 
@@ -16,7 +20,7 @@ export default class Route {
    * @param {string} page
    * @param {object} params
    */
-  static navigate(page: string, params: object) {
+  static navigate(page: string, params?: object) {
     this.navigation && this.navigation.navigate(page, { ...params })
   }
   /**

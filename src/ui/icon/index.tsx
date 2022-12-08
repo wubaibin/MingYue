@@ -1,3 +1,7 @@
+/**
+ * @description: 图标
+ * @author: wubaibin
+ */
 import { View, Text } from "react-native";
 import React from "react";
 import { iconNames } from "./name";
@@ -12,7 +16,7 @@ interface Props {
 export default (props: Props) => {
   const { name, size = 10, color = Color.theme, style = {} } = props;
   return (
-    <View style={{ ...style }}>
+    <View style={{ ...style  }}>
       <Text style={{ fontFamily: 'iconfont', fontSize: size, color }}>{iconNames[name]}</Text>
     </View>
   )

@@ -4,6 +4,8 @@
 const iconNames = {
   ic_home: '\ue6de',
   ic_usercentre: '\ue6df',
+  arrow: '\ue68a',
+  ic_refresh: "\ue6f8",
 }
 export {
   iconNames,

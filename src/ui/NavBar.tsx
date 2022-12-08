@@ -1,12 +1,7 @@
-/*
- * @Description: 
- * @Version: 1.0.0
- * @Autor: wubaibin
- * @Date: 2022-12-06 15:50:50
- * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-07 13:15:03
+/**
+ * @description: 导航栏
+ * @author: wubaibin
  */
-
 import { Text, StyleSheet, View, StatusBar, Image, TouchableOpacity } from "react-native";
 import React, { useState, useEffect } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -36,12 +31,8 @@ interface Props {
   // 自定义right
   right?: object;
 }
-enum Mode {
-  black = 'black', white = 'white'
-}
-enum BarStyle {
-  default = 'default', lightContent = 'light-content', darkContent = 'dark-content'
-}
+type Mode = "black" | "white";
+type BarStyle = "default" | "light-content" | "dark-content";
 export default (props: Props) => {
   const insets = useSafeAreaInsets()
   const {
@@ -50,9 +41,9 @@ export default (props: Props) => {
     titleSize = 19,
     titleColor = Color.navBarTitle,
     titleStyle = {},
-    mode = Mode.black,
+    mode = "black",
     bgColor = Color.navBarBg,
-    barStyle = BarStyle.darkContent,
+    barStyle = "dark-content",
     left,
     right
   } = props;
@@ -110,7 +101,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    left: 0,
+    left: 12,
     top: 0
   },
   icon: {
@@ -122,7 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    right: 0,
+    right: 12,
     top: 0
   }
 })
