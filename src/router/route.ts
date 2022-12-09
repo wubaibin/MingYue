@@ -1,11 +1,3 @@
-/*
- * @Description: 
- * @Version: 1.0.0
- * @Autor: wubaibin
- * @Date: 2022-12-06 17:46:22
- * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-07 17:16:40
- */
 /**
  * @description: App路由跳转
  * @author: wubaibin

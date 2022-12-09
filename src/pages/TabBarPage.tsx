@@ -1,11 +1,3 @@
-/*
- * @Description: tabBar
- * @Version: 1.0.0
- * @Autor: wubaibin
- * @Date: 2022-12-07 16:19:17
- * @LastEditors: wubaibin
- * @LastEditTime: 2022-12-07 16:41:14
- */
 import { Text, StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";

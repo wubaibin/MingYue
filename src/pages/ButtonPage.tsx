@@ -8,7 +8,7 @@ import Button from "../ui/Button";
 export default (props: any) => {
   const insets = useSafeAreaInsets();
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff', paddingBottom: insets.bottom }}>
+    <View style={{ flex: 1, backgroundColor: '#f7f8fa', paddingBottom: insets.bottom }}>
       <NavBar title={'Button'}></NavBar>
       <ScrollView style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>按钮尺寸</Text>

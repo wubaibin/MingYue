@@ -6,6 +6,7 @@ const iconNames = {
   ic_usercentre: '\ue6df',
   arrow: '\ue68a',
   ic_refresh: "\ue6f8",
+  close: "\ue664",
 }
 export {
   iconNames,

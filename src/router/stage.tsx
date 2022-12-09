@@ -8,6 +8,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabBarPage from '../pages/TabBarPage';
 import ButtonPage from '../pages/ButtonPage';
 import IconPage from '../pages/IconPage';
+import PopupPage from '../pages/PopupPage';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,7 @@ export default () => {
         <Stack.Screen name='TabBarPage' component={TabBarPage} />
         <Stack.Screen name="ButtonPage" component={ButtonPage} initialParams={{ title: 'Button' }} />
         <Stack.Screen name="IconPage" component={IconPage} initialParams={{ title: 'Icon' }} />
+        <Stack.Screen name="PopupPage" component={PopupPage} initialParams={{ title: 'Popup' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

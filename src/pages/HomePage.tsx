@@ -17,9 +17,11 @@ export default (props: any) => {
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <NavBar title={title} left={<View></View>}></NavBar>
       <View style={{ paddingHorizontal: 18 }}>
-        <Text style={Title}>基础组件</Text>
+        <Text style={Title}>基础</Text>
         <List title="Button" onPress={() => { handleList("ButtonPage") }}></List>
         <List title="Icon 图标" onPress={() => { handleList("IconPage") }}></List>
+        <Text style={Title}>视图</Text>
+        <List title="Popup" onPress={() => { handleList("PopupPage") }}></List>
       </View>
     </View>
   )

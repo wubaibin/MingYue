@@ -34,7 +34,7 @@ interface Props {
 type Mode = "black" | "white";
 type BarStyle = "default" | "light-content" | "dark-content";
 export default (props: Props) => {
-  const insets = useSafeAreaInsets()
+  const insets = useSafeAreaInsets();
   const {
     title,
     titleLength = 11,
