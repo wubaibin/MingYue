@@ -51,10 +51,10 @@ interface Props {
 
 }
 // long 100% 44 16  large 329 44 16 medium 80 32 13 mini 60 28 12
-type Size = "long" | "large" | "medium" | "mini";
+export type Size = "long" | "large" | "medium" | "mini";
 // 直角 圆弧 半圆
-type Shape = "square" | "circle" | "semicircle";
-type LoadingSize = "small" | "large";
+export type Shape = "square" | "circle" | "semicircle";
+export type LoadingSize = "small" | "large";
 
 export default (props: Props) => {
   const {

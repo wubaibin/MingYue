@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import NavBar from '../ui/NavBar';
 import { Title } from '../style';
 import List from '../components/List';
-import { Popup, Position } from '../ui/Popup';
+import Popup, { Position } from '../ui/Popup';
 
 export default (props: any) => {
   const { title } = props.route.params;

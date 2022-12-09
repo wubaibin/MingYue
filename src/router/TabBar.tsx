@@ -1,9 +1,9 @@
 import { Text, StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomePage from "./HomePage";
+import HomePage from "../pages/HomePage";
 import Icon from "../ui/icon";
-import CenterPage from "./CenterPage";
+import CenterPage from "../pages/CenterPage";
 import { Color } from "../ui/utils/config";
 
 const Tab = createBottomTabNavigator();

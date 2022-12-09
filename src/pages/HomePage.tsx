@@ -22,6 +22,8 @@ export default (props: any) => {
         <List title="Icon 图标" onPress={() => { handleList("IconPage") }}></List>
         <Text style={Title}>视图</Text>
         <List title="Popup" onPress={() => { handleList("PopupPage") }}></List>
+        <Text style={Title}>操作反馈</Text>
+        <List title="Toast" onPress={() => { handleList("ToastPage") }}></List>
       </View>
     </View>
   )

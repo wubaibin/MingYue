@@ -35,8 +35,9 @@ interface Props {
   customClose?: object;
   children?: any;
 }
-type AnimationType = "slide" | "fade" | "none";
-const Popup = forwardRef((props: Props, ref) => {
+export type AnimationType = "slide" | "fade" | "none";
+export type Position = "top" | "bottom" | "right" | "left" | "center";
+export default forwardRef((props: Props, ref) => {
   // 是否展示
   const [visible, setVisible] = useState(false);
   const [animationType, setAnimationType] = useState<AnimationType>("fade");
@@ -121,10 +122,6 @@ const Popup = forwardRef((props: Props, ref) => {
     </Modal >
   )
 })
-export type Position = "top" | "bottom" | "right" | "left" | "center";
-export {
-  Popup
-};
 const styles = StyleSheet.create({
   top: {
     flexDirection: "column",

@@ -31,8 +31,8 @@ interface Props {
   // 自定义right
   right?: object;
 }
-type Mode = "black" | "white";
-type BarStyle = "default" | "light-content" | "dark-content";
+export type Mode = "black" | "white";
+export type BarStyle = "default" | "light-content" | "dark-content";
 export default (props: Props) => {
   const insets = useSafeAreaInsets();
   const {
