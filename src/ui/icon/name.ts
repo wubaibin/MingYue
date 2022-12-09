@@ -7,6 +7,8 @@ const iconNames = {
   arrow: '\ue68a',
   ic_refresh: "\ue6f8",
   close: "\ue664",
+  success: "\ue755",
+  fail: "\ue61c",
 }
 export {
   iconNames,

@@ -18,6 +18,7 @@
     "strict": true,
     // 忽略因为类型为 “string“ 的表达式不能用于索引类型 “Object“
     "suppressImplicitAnyIndexErrors": true,
+    // "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     // 允许export=导出，由import from 导入
     "esModuleInterop": true,                  

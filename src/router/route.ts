@@ -5,7 +5,7 @@
 import { StackActions } from '@react-navigation/native'
 
 export default class Route {
-  static navigation: any
+  static navigation: any;
   // navigation: undefined, //fix Non-serializable values were found in the navigation state. Check:
   /**
    * @description: 保留当前页面，跳转到应用内的某个页面
