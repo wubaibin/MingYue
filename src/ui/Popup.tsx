@@ -109,8 +109,8 @@ export default forwardRef((props: Props, ref) => {
           <View style={{ position: "relative", ...containerStyle, backgroundColor: bgColor, zIndex, elevation: zIndex, ...style }}>
             {children}
             {
-              closeable ?
-                <TouchableOpacity style={{ ...styles.closeContainer, ...closeStyle }} onPress={() => { setVisible(false) }}>
+              closeable && (position === "bottom" || position === "top") ?
+                <TouchableOpacity style={[styles.closeContainer, { [position === "bottom" ? "top" : "bottom"]: 16 }, closeStyle]} onPress={() => { setVisible(false) }}>
                   {
                     !customClose ? <Icon name={closeIcon} size={closeSize} color={closeColor}></Icon> : <>{customClose}</>
                   }
@@ -149,6 +149,5 @@ const styles = StyleSheet.create({
   closeContainer: {
     position: "absolute",
     right: 16,
-    top: 16,
   }
 })

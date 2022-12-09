@@ -12,10 +12,10 @@ export default (props: any) => {
   const [closeable, setCloseable] = useState<boolean>(false);
   const popupRef = useRef<any>(null);
 
-  const handleList = (type: Position, radius?: number, close?: string) => {
+  const handleList = (type: Position, radius?: number, close?: boolean) => {
     setPosition(type);
     radius && setRadius(radius);
-    close && setCloseable(true);
+    setCloseable(!!close);
     popupRef.current.show();
   }
   return (
@@ -30,7 +30,7 @@ export default (props: any) => {
         <List type={2} title="左侧弹出" onPress={() => { handleList("left") }}></List>
         <List type={2} title="右侧弹出" onPress={() => { handleList("right") }}></List>
         <Text style={Title}>关闭图标</Text>
-        <List type={2} title="关闭图标" onPress={() => { handleList("bottom", 0, "showClose") }}></List>
+        <List type={2} title="关闭图标" onPress={() => { handleList("bottom", 0, true) }}></List>
         <Text style={Title}>圆角弹窗</Text>
         <List type={2} title="圆角弹窗" onPress={() => { handleList("bottom", 12) }}></List>
       </View>
