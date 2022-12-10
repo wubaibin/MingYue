@@ -16,10 +16,10 @@ export default (props: any) => {
       timer && clearInterval(timer);
     }
   }, [])
-  const handleList = (type: string, icon?: string) => {
+  const handleList = (type: string, icon?: string, mask?: boolean) => {
     if (type === "showToast") {
       if (icon) {
-        $toast.showToast({ title: `${icon === 'success' ? '成功' : '失败'}文案`, icon });
+        $toast.showToast({ title: `${icon === 'success' ? '成功' : '失败'}文案`, icon, mask: !!mask });
         return
       }
       // toast.current.showToast({ title: "这是一条基础提示框" });
@@ -43,6 +43,8 @@ export default (props: any) => {
         <List type={2} title="加载提示" onPress={() => { handleList("showLoading") }}></List>
         <List type={2} title="成功提示" onPress={() => { handleList("showToast", "success") }}></List>
         <List type={2} title="失败提示" onPress={() => { handleList("showToast", "fail") }}></List>
+        <Text style={Title}>点击关闭</Text>
+        <List type={2} title="点击关闭" onPress={() => { handleList("showToast", "fail", false) }}></List>
         <Toast ref={toast}></Toast>
       </View>
     </View>

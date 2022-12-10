@@ -1,9 +1,11 @@
+import { ShowToast, ShowLoading } from "../Toast";
+
 class $toast {
   static current: any;
-  static showToast(param: object) {
+  static showToast(param: ShowToast) {
     this.current.showToast(param);
   }
-  static showLoading(param: object) {
+  static showLoading(param: ShowLoading) {
     this.current.showLoading(param);
   }
   static hideLoading() {

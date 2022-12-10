@@ -4,39 +4,55 @@ import React, { useState, useEffect, useImperativeHandle, forwardRef } from "rea
 import Icon from "./icon";
 import StringRegular from "./utils/string";
 
+export interface ShowToast {
+  title: string,
+  icon?: string,
+  duration?: number,
+  mask?: boolean,
+}
+export interface ShowLoading {
+  title: string,
+  mask?: boolean,
+}
+
 export default forwardRef((props: any, ref) => {
   const [visible, setVisible] = useState(false);
   const [title, setTitle] = useState("");
   const [icon, setIcon] = useState("");
   const [loading, setLoading] = useState(false);
   const [mask, setMask] = useState(true);
-  let timer: any = null;
   const backgroundColor = "rgba(0, 0, 0, 0.8)";
   const color = "#ffffff";
+  let timer: NodeJS.Timer | null = null;
   useEffect(() => {
-    return () => {
-      timer && clearTimeout(timer)
+    return (): void => {
+      timer && clearTimeout(Number(timer));
     }
   }, [])
-  useImperativeHandle(ref, () => ({
-    showToast: ({ title = "", icon = "", duration = 2000 }) => {
+  useImperativeHandle(ref, (): object => ({
+    showToast: (params: ShowToast) => {
+      const { title, icon = "", duration = 2000, mask = true } = params;
       setTitle(title);
       setIcon(icon);
       setVisible(true);
-      timer = setTimeout(() => {
+      setMask(mask);
+      timer = setTimeout((): void => {
         setVisible(false);
+        timer && clearTimeout(Number(timer));
       }, duration)
     },
-    showLoading: ({ title = "" }) => {
+    showLoading: (params: ShowLoading): void => {
+      const { title, mask = true } = params;
       setTitle(title);
+      setMask(mask);
       setLoading(true);
       setVisible(true);
     },
-    hideLoading: () => {
-      hideLoading()
+    hideLoading: (): void => {
+      hide();
     },
   }));
-  const hideLoading = () => {
+  const hide = (): void => {
     setVisible(false);
     setLoading(false);
   }
@@ -45,7 +61,7 @@ export default forwardRef((props: any, ref) => {
       <TouchableOpacity
         activeOpacity={1}
         style={{ flex: 1, flexDirection: "column", justifyContent: 'center', alignItems: 'center' }}
-        onPress={mask ? () => { } : () => { hideLoading() }}
+        onPress={mask ? () => { } : () => { hide() }}
       >
         {
           loading ?
