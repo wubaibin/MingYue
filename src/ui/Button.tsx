@@ -7,7 +7,7 @@ import React from "react";
 import { Color } from "./utils/config";
 import Icon from "./icon";
 
-interface Props {
+export interface Props {
   // 大小
   size?: Size;
   // 字体大小
@@ -48,7 +48,6 @@ interface Props {
   loadingStyle?: object;
   children?: any;
   onPress?: () => void;
-
 }
 // long 100% 44 16  large 329 44 16 medium 80 32 13 mini 60 28 12
 export type Size = "long" | "large" | "medium" | "mini";

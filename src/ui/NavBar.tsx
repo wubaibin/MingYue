@@ -9,7 +9,7 @@ import { Color, Config } from "./utils/config";
 import StringRegular from './utils/string';
 import Route from "../router/route";
 
-interface Props {
+export interface Props {
   // 标题
   title: string;
   // 标题长度

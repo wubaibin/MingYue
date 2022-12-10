@@ -3,7 +3,7 @@ import React, { useState, useEffect, useImperativeHandle, forwardRef } from "rea
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Icon from './icon';
 
-interface Props {
+export interface Props {
   // 遮罩层背景颜色
   maskBgColor?: string;
   // 展示层背景颜色

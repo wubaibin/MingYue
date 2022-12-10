@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
-import NavBar from '../ui/NavBar';
+import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import List from "../components/List";
 import Toast from "../ui/Toast";

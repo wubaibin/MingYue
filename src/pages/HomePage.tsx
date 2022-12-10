@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
 import NavBar from "../ui/NavBar";
 import Route from "../router/route";
@@ -16,15 +16,16 @@ export default (props: any) => {
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <NavBar title={title} left={<View></View>}></NavBar>
-      <View style={{ paddingHorizontal: 18 }}>
+      <ScrollView style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>基础</Text>
-        <List title="Button" onPress={() => { handleList("ButtonPage") }}></List>
-        <List title="Icon 图标" onPress={() => { handleList("IconPage") }}></List>
+        <List title="按钮 Button" onPress={() => { handleList("ButtonPage") }}></List>
+        <List title="图标 Icon" onPress={() => { handleList("IconPage") }}></List>
         <Text style={Title}>视图</Text>
-        <List title="Popup" onPress={() => { handleList("PopupPage") }}></List>
+        <List title="弹出层 Popup" onPress={() => { handleList("PopupPage") }}></List>
         <Text style={Title}>操作反馈</Text>
-        <List title="Toast" onPress={() => { handleList("ToastPage") }}></List>
-      </View>
+        <List title="轻提示 Toast" onPress={() => { handleList("ToastPage") }}></List>
+        <List title="模态框 Dialog" onPress={() => { handleList("ToastPage") }}></List>
+      </ScrollView>
     </View>
   )
 }
