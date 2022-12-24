@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Icon from './icon';
 
 const Popup = forwardRef((props, ref) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(props.show);
   const [animationType, setAnimationType] = useState("fade");
   const [containerStyle, setContainerStyle] = useState({});
   const { maskBgColor, bgColor, position, borderRadius, style, locked, insetBottom, insetTop, closeable, closeIcon, closeSize, closeColor, closeStyle, customClose, children } = props;
@@ -39,7 +39,10 @@ const Popup = forwardRef((props, ref) => {
     return () => {
       setVisible(false);
     }
-  }, [position, borderRadius]);
+  }, [props.position, props.borderRadius]);
+  useEffect(() => {
+    setVisible(props.show);
+  }, [props.show])
   useImperativeHandle(ref, () => ({
     show: () => {
       setVisible(true);
@@ -74,6 +77,7 @@ const Popup = forwardRef((props, ref) => {
 export default Popup;
 
 Popup.propTypes = {
+  show: PropTypes.bool,
   // 遮罩层背景颜色
   maskBgColor: PropTypes.string,
   // 展示层背景颜色
@@ -105,6 +109,7 @@ Popup.propTypes = {
   customClose: PropTypes.object,
 }
 Popup.defaultProps = {
+  show: false,
   maskBgColor: "rgba(0, 0, 0, 0.5)",
   bgColor: "#ffffff",
   position: "center",

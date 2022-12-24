@@ -5,6 +5,9 @@ export default class StringRegular {
    * @param {number} saveLength
    */
   static ellipsis(res, saveLength) {
+    if (!res) {
+      return "";
+    }
     if (res.length >= saveLength + 1) {
       return res.slice(0, saveLength) + '...';
     }
