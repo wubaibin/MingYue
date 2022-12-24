@@ -119,7 +119,7 @@ export default class Dialog extends Component {
       this.hidden()
       return
     }
-    this.props.onCancel(true)
+    this.props.onCancel("cancel")
   }
   onConfirm = () => {
     const {
@@ -134,7 +134,15 @@ export default class Dialog extends Component {
       this.hidden()
       return
     }
-    this.props.onConfirm(true)
+    this.props.onConfirm("confirm")
+  }
+  onBgTap = () => {
+    if (locked) {
+      this.props.onBgTap && this.props.onBgTap("bg");
+      return;
+    }
+    this.props.onBgTap && this.props.onBgTap("bg");
+    this.hidden();
   }
   render() {
     const { showTitle } = this.props;
@@ -147,7 +155,7 @@ export default class Dialog extends Component {
     const contentType = typeof (content);
     return (
       <Modal visible={visible} transparent={true} presentationStyle="overFullScreen" animationType="fade">
-        <TouchableOpacity activeOpacity={1} style={[styles.maskContainer, { backgroundColor: maskBgColor }]} onPress={locked ? () => { } : this.hidden()}>
+        <TouchableOpacity activeOpacity={1} style={[styles.maskContainer, { backgroundColor: maskBgColor }]} onPress={this.onBgTap}>
           <View style={{ width, borderRadius: radius, backgroundColor: bgColor }}>
             {showTitle && title ? <Text style={[styles.title, { color: titleColor }]}>{title}</Text> : <></>
             }
