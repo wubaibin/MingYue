@@ -4,50 +4,65 @@
  */
 import { Text, StyleSheet, View, TouchableWithoutFeedback, TouchableHighlight, ActivityIndicator } from "react-native";
 import React from "react";
-import PropTypes from 'prop-types';
 import { Color } from "./utils/config";
 import Icon from "./icon";
 
-Button.propTypes = {
-  size: PropTypes.oneOf(['long', 'large', 'medium', 'mini']),
-  fontSize: PropTypes.number,
-  shape: PropTypes.oneOf(['square', 'circle', 'semicircle']),
-  plain: PropTypes.bool,
-  disabled: PropTypes.bool,
-  color: PropTypes.string,
-  bgColor: PropTypes.string,
-  borderColor: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  style: PropTypes.object,
-  btnStyle: PropTypes.object,
-  icon: PropTypes.string,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.string,
-  iconStyle: PropTypes.object,
-  loading: PropTypes.bool,
-  loadingSize: PropTypes.oneOf(['small', 'large']),
-  loadingStyle: PropTypes.object,
+export interface Props {
+  // 大小
+  size?: Size;
+  // 字体大小
+  fontSize?: number;
+  // 形状
+  shape?: Shape;
+  // 是否镂空
+  plain?: boolean;
+  // 是否禁用
+  disabled?: boolean;
+  // 字体颜色
+  color?: string;
+  // 背景颜色
+  bgColor?: string;
+  // 镂空状态下的border颜色
+  borderColor?: string;
+  // 按钮自定义长度
+  width?: number;
+  // 按钮自定义宽度
+  height?: number;
+  // container自定义样式 例如：margin padding
+  style?: object;
+  // 按钮自定义样式
+  btnStyle?: object;
+  // 是否包含图标
+  icon?: string;
+  // 图标大小
+  iconSize?: number;
+  // 图标颜色
+  iconColor?: string;
+  // 图标自定义样式
+  iconStyle?: object;
+  // 是否加载中
+  loading?: boolean;
+  // 加载图标大小
+  loadingSize?: LoadingSize;
+  // 加载自定义样式
+  loadingStyle?: object;
+  children?: any;
+  onPress?: () => void;
 }
-Button.defaultProps = {
-  size: "medium",
-  shape: "semicircle",
-  plain: false,
-  disabled: false,
-  color: "#ffffff",
-  bgColor: Color.theme,
-  borderColor: "#CACACA",
-  btnStyle: {},
-  iconSize: 12,
-  iconColor: "#ffffff",
-  iconStyle: {},
-  loading: false,
-  loadingSize: "small",
-  loadingStyle: {}
-}
+// long 100% 44 16  large 329 44 16 medium 80 32 13 mini 60 28 12
+export type Size = "long" | "large" | "medium" | "mini";
+// 直角 圆弧 半圆
+export type Shape = "square" | "circle" | "semicircle";
+export type LoadingSize = "small" | "large";
 
-export default function Button(props) {
-  const { size, shape, disabled, style, onPress } = props;
+export default (props: Props) => {
+  const {
+    size = "medium",
+    shape = "semicircle",
+    disabled = false,
+    style = {},
+    onPress = () => { },
+  } = props;
   return (
     <View style={[size === "long" ? {} : { flexDirection: 'row' }, style]}>
       {
@@ -66,8 +81,28 @@ export default function Button(props) {
     </View>
   )
 }
-const ButtonView = (props) => {
-  const { size, fontSize, shape, plain, disabled, color, bgColor, borderColor, width, height, btnStyle, icon, iconSize, iconColor, iconStyle, loading, loadingSize, loadingStyle, children } = props;
+const ButtonView = (props: Props) => {
+  const {
+    size = "medium",
+    fontSize,
+    shape = "semicircle",
+    plain = false,
+    disabled = false,
+    color = "#fff",
+    bgColor = Color.theme,
+    borderColor = "#CACACA",
+    width,
+    height,
+    btnStyle = {},
+    icon = "",
+    iconSize = 12,
+    iconColor = "#fff",
+    iconStyle = {},
+    loading = false,
+    loadingSize = "small",
+    loadingStyle = {},
+    children,
+  } = props;
   const childrenType = typeof (children);
   const disabledBgColor = "#EBEBEB";
   const plainBgColor = "#fff";

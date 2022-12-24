@@ -4,7 +4,7 @@ import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import Icon from "../ui/icon";
 
-export default (props) => {
+export default (props: any) => {
   const { title } = props.route.params;
   return (
     <View style={{ flex: 1, backgroundColor: '#f7f8fa' }}>

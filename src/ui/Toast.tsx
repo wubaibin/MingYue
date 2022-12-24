@@ -1,9 +1,21 @@
+
 import { Text, StyleSheet, View, TouchableOpacity, Modal, ActivityIndicator } from "react-native";
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import Icon from "./icon";
 import StringRegular from "./utils/string";
 
-const Toast = forwardRef((props, ref) => {
+export interface ShowToast {
+  title: string;
+  icon?: string;
+  duration?: number;
+  mask?: boolean;
+}
+export interface ShowLoading {
+  title: string;
+  mask?: boolean;
+}
+
+export default forwardRef((props: any, ref) => {
   const [visible, setVisible] = useState(false);
   const [title, setTitle] = useState("");
   const [icon, setIcon] = useState("");
@@ -11,36 +23,36 @@ const Toast = forwardRef((props, ref) => {
   const [mask, setMask] = useState(true);
   const backgroundColor = "rgba(0, 0, 0, 0.8)";
   const color = "#ffffff";
-  let timer = null;
+  let timer: NodeJS.Timer | null = null;
   useEffect(() => {
-    return () => {
+    return (): void => {
       timer && clearTimeout(Number(timer));
     }
   }, [])
-  useImperativeHandle(ref, () => ({
-    showToast: (params) => {
+  useImperativeHandle(ref, (): object => ({
+    showToast: (params: ShowToast) => {
       const { title, icon = "", duration = 2000, mask = true } = params;
       setTitle(title);
       setIcon(icon);
       setVisible(true);
       setMask(mask);
-      timer = setTimeout(() => {
+      timer = setTimeout((): void => {
         setVisible(false);
         timer && clearTimeout(Number(timer));
       }, duration)
     },
-    showLoading: (params) => {
+    showLoading: (params: ShowLoading): void => {
       const { title, mask = true } = params;
       setTitle(title);
       setMask(mask);
       setLoading(true);
       setVisible(true);
     },
-    hideLoading: () => {
+    hideLoading: (): void => {
       hide();
     },
   }));
-  const hide = () => {
+  const hide = (): void => {
     setVisible(false);
     setLoading(false);
   }
@@ -70,8 +82,6 @@ const Toast = forwardRef((props, ref) => {
     </Modal>
   )
 })
-
-export default Toast;
 
 const styles = StyleSheet.create({
   toastContainer: {

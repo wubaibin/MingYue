@@ -2,7 +2,13 @@ import { Text, StyleSheet, View, TouchableHighlight } from "react-native";
 import React, { useState, useEffect } from "react";
 import Icon from '../ui/icon';
 
-export default (props) => {
+interface Props {
+  title: string;
+  type?: number;
+  onPress?: () => void;
+}
+
+export default (props: Props) => {
   const { title, type = 1, onPress } = props;
   const [borderRadius, setBorderRadius] = useState(24);
   const [backgroundColor, setBackgroundColor] = useState("#f7f8fa");

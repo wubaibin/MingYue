@@ -5,14 +5,14 @@
 import { StackActions } from '@react-navigation/native'
 
 export default class Route {
-  static navigation;
+  static navigation: any;
   // navigation: undefined, //fix Non-serializable values were found in the navigation state. Check:
   /**
    * @description: 保留当前页面，跳转到应用内的某个页面
    * @param {string} page
    * @param {object} params
    */
-  static navigate(page, params) {
+  static navigate(page: string, params?: object) {
     this.navigation && this.navigation.navigate(page, { ...params })
   }
   /**
@@ -20,7 +20,7 @@ export default class Route {
    * @param {string} page
    * @param {object} params
    */
-  static push(page, params) {
+  static push(page: string, params: object) {
     this.navigation && this.navigation.push(page, { ...params })
   }
 
@@ -29,14 +29,14 @@ export default class Route {
    * @param {string} page
    * @param {object} params
    */
-  static jumpTo(page, params) {
+  static jumpTo(page: string, params: object) {
     this.navigation && this.navigation.jumpTo(page, { ...params })
   }
   /**
    * @description: 关闭当前页面，跳转到应用内的某个页面
    * @param {string} page
    */
-  static dispatch(page = 'HomePage') {
+  static dispatch(page: string = 'HomePage') {
     this.navigation && this.navigation.dispatch(StackActions.replace(page, {}))
   }
   /**
@@ -56,7 +56,7 @@ export default class Route {
    * @description: 将您带回到堆栈中的上一个屏幕。它需要一个可选参数 ( count)，它允许您指定要弹出多少屏幕
    * @param {number} count
    */
-  static pop(count = 1) {
+  static pop(count: number = 1) {
     if (!this.navigation) {
       return
     }

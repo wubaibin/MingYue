@@ -1,0 +1,31 @@
+
+{
+  "compilerOptions": {
+    // 设置ts代码编译的目标版本
+    "target": "esnext",
+    // 设置编译后代码使用的模块化系统
+    "module": "commonjs",
+    // 指定代码运行时所包含的库（宿主环境）
+    "lib": ["es2017"],
+    // 是否对js文件编译
+    "allowJs": true,
+    // react-native模式
+    "jsx": "react-native",
+    // 不对代码进行编译
+    "noEmit": true,                           
+    "isolatedModules": true,
+    // 启用所有的严格检查
+    "strict": true,
+    // 忽略因为类型为 “string“ 的表达式不能用于索引类型 “Object“
+    "suppressImplicitAnyIndexErrors": true,
+    // "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    // 允许export=导出，由import from 导入
+    "esModuleInterop": true,                  
+    "skipLibCheck": false,                    
+    "resolveJsonModule": true                
+  },
+  "exclude": [
+    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
+  ]
+}

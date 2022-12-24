@@ -5,12 +5,12 @@ import Route from "../router/route";
 import List from "../components/List";
 import { Title } from "../style";
 
-export default (props) => {
+export default (props: any) => {
   useEffect(() => {
     Route.navigation = props.navigation;
   }, [])
   const { title } = props.route.params;
-  const handleList = (path) => {
+  const handleList = (path: string) => {
     Route.navigate(path);
   }
   return (

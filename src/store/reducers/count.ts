@@ -1,6 +1,6 @@
 import Types from "../actions/types";
 
-export default function countReducer(preState = 0, action) {
+export default function countReducer(preState: number = 0, action: { type: string; data: number }) {
   const { type, data } = action
   switch (type) {
     case Types.INCREMENT: // 加

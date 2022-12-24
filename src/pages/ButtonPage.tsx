@@ -5,7 +5,7 @@ import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import Button from "../ui/Button";
 
-export default (props) => {
+export default (props: any) => {
   const insets = useSafeAreaInsets();
   return (
     <View style={{ flex: 1, backgroundColor: '#f7f8fa', paddingBottom: insets.bottom }}>

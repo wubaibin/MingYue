@@ -1,4 +1,5 @@
-import React from "react";
+import { Text, StyleSheet, View } from "react-native";
+import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomePage from "../pages/HomePage";
 import Icon from "../ui/icon";
@@ -13,8 +14,8 @@ const TABS = {
     navigationOptions: {
       tabBarLabel: '首页',
       headerShown: false,
-      tabBarIcon: ({ color }) => (
-        <Icon size={20} color={color} name={'ic_home'} />
+      tabBarIcon: (value: { color: string; }) => (
+        <Icon size={20} color={value.color} name={'ic_home'} />
       )
     }
   },
@@ -23,13 +24,13 @@ const TABS = {
     navigationOptions: {
       tabBarLabel: '我的',
       headerShown: false,
-      tabBarIcon: ({ color }) => (
-        <Icon size={20} color={color} name={'ic_usercentre'} />
+      tabBarIcon: (value: { color: string; }) => (
+        <Icon size={20} color={value.color} name={'ic_usercentre'} />
       )
     }
   }
 }
-export default (props) => {
+export default (props: any) => {
   return (
     <Tab.Navigator>
       {Object.entries(TABS).map((item, index) => {
@@ -60,3 +61,5 @@ export default (props) => {
     </Tab.Navigator>
   )
 }
+
+const styles = StyleSheet.create({})

@@ -4,23 +4,26 @@ import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import List from "../components/List";
 import Toast from "../ui/Toast";
+import { $toast } from "../ui/utils/global";
 
-export default (props) => {
+export default (props: any) => {
   const { title } = props.route.params;
-  const toast = useRef(null);
-  let timer = null;
+  const toast = useRef<any>(null);
+  let timer: any = null;
   useEffect(() => {
+    $toast.current = toast.current;
     return () => {
       timer && clearInterval(timer);
     }
   }, [])
-  const handleList = (type, icon, mask) => {
+  const handleList = (type: string, icon?: string, mask?: boolean) => {
     if (type === "showToast") {
       if (icon) {
         $toast.showToast({ title: `${icon === 'success' ? '成功' : '失败'}文案`, icon, mask: !!mask });
         return
       }
-      toast.current.showToast({ title: "这是一条基础提示框" });
+      // toast.current.showToast({ title: "这是一条基础提示框" });
+      $toast.showToast({ title: "这是一条基础提示框" });
       return
     }
     if (type === "showLoading") {

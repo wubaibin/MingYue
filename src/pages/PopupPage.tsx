@@ -3,16 +3,16 @@ import React, { useState, useEffect, useRef } from "react";
 import NavBar from "../ui/NavBar";
 import { Title } from "../style";
 import List from "../components/List";
-import Popup from "../ui/Popup";
+import Popup, { Position } from "../ui/Popup";
 
-export default (props) => {
+export default (props: any) => {
   const { title } = props.route.params;
-  const [position, setPosition] = useState("center");
-  const [radius, setRadius] = useState(0);
-  const [closeable, setCloseable] = useState(false);
-  const popupRef = useRef(null);
+  const [position, setPosition] = useState<Position>("center");
+  const [radius, setRadius] = useState<number>(0);
+  const [closeable, setCloseable] = useState<boolean>(false);
+  const popupRef = useRef<any>(null);
 
-  const handleList = (type, radius, close) => {
+  const handleList = (type: Position, radius?: number, close?: boolean) => {
     setPosition(type);
     radius && setRadius(radius);
     setCloseable(!!close);
