@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Modal, TouchableHighlight } from "react-native";
+import { Text, StyleSheet, View, Modal, TouchableHighlight, TouchableOpacity } from "react-native";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Color } from "./utils/config";
@@ -6,8 +6,10 @@ import { Color } from "./utils/config";
 export default class Dialog extends Component {
   static propTypes = {
     type: PropTypes.oneOf(["alert", "confirm"]),
+    locked: PropTypes.bool,
     showTitle: PropTypes.bool,
     title: PropTypes.string,
+    titleColor: PropTypes.string,
     content: PropTypes.string,
     contentColor: PropTypes.string,
     cancelText: PropTypes.string,
@@ -16,9 +18,11 @@ export default class Dialog extends Component {
     confirmColor: PropTypes.string,
   }
   static defaultProps = {
-    type: "confirm",
+    type: "alert",
+    locked: true,
     showTitle: true,
     title: "提示",
+    titleColor: "#2c3248",
     content: "",
     contentColor: "#454545",
     cancelText: "取消",
@@ -30,8 +34,10 @@ export default class Dialog extends Component {
     super(props)
     this.state = {
       visible: false,
+      locked: props.locked,
       type: props.type,
       title: props.title,
+      titleColor: props.titleColor,
       content: props.content,
       contentColor: props.contentColor,
       cancelText: props.cancelText,
@@ -41,11 +47,29 @@ export default class Dialog extends Component {
       success: null,
     }
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(this.props) !== JSON.stringify(prevProps)) {
+      this.setState({
+        type: this.props.type,
+        locked: this.props.locked,
+        title: this.props.title,
+        titleColor: this.props.titleColor,
+        content: this.props.content,
+        confirmText: this.props.confirmText,
+        cancelColor: this.props.cancelColor,
+        cancelText: this.props.cancelText,
+        confirmColor: this.props.confirmColor,
+        contentColor: this.props.contentColor,
+      })
+    }
+  }
   // 弹窗开放函数
   showDialog = (t) => {
     const {
+      locked = true,
       type = "confirm",
       title = "提示",
+      titleColor = "#2c3248",
       content = "",
       confirmText = "确认",
       contentColor = "#454545",
@@ -56,8 +80,10 @@ export default class Dialog extends Component {
     } = t;
     this.setState({
       visible: true,
+      locked,
       type,
       title,
+      titleColor,
       content,
       confirmText,
       cancelColor,
@@ -109,22 +135,25 @@ export default class Dialog extends Component {
   }
   render() {
     const { showTitle } = this.props;
-    const { visible, title, type, content, contentColor, cancelText, cancelColor, confirmText, confirmColor } = this.state
+    const { visible, title, titleColor, type, content, contentColor, cancelText, cancelColor, confirmText, confirmColor, locked } = this.state
     const width = 320;
     const btnHeight = 50;
     const bgColor = '#ffffff';
     const maskBgColor = 'rgba(0, 0, 0, 0.5)';
     const radius = 8;
+    const contentType = typeof (content);
     return (
       <Modal visible={visible} transparent={true} presentationStyle="overFullScreen" animationType="fade">
-        <View style={[styles.maskContainer, { backgroundColor: maskBgColor }]}>
+        <TouchableOpacity activeOpacity={1} style={[styles.maskContainer, { backgroundColor: maskBgColor }]} onPress={locked ? () => { } : this.hidden()}>
           <View style={{ width, borderRadius: radius, backgroundColor: bgColor }}>
-            {showTitle && title ? <Text style={styles.title}>{title}</Text> : <></>
+            {showTitle && title ? <Text style={[styles.title, { color: titleColor }]}>{title}</Text> : <></>
             }
             <View style={styles.content}>
               {
-                content ?
-                  <Text style={[styles.contentText, { color: contentColor }]}>   {content} </Text> : <></>
+                !content ? <></> :
+                  contentType === "string" ?
+                    <Text style={[styles.contentText, { color: contentColor }]}>{content}</Text> :
+                    <>{content}</>
               }
               {this.props.children}
             </View>
@@ -164,7 +193,7 @@ export default class Dialog extends Component {
               </TouchableHighlight>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
     );
   }
@@ -181,7 +210,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#2c3248',
     marginTop: 25,
     paddingHorizontal: 32,
     textAlign: 'center',
