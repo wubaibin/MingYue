@@ -51,12 +51,20 @@ const Popup = forwardRef((props, ref) => {
       setVisible(false);
     }
   }));
+  const onBgTap = () => {
+    if (locked) {
+      this.props.onBgTap && this.props.onBgTap("bg");
+      return
+    }
+    this.props.onBgTap && this.props.onBgTap("bg");
+    setVisible(false);
+  }
   return (
     <Modal style={{ position: 'relative' }} visible={visible} transparent={true} animationType={animationType}>
       <TouchableOpacity
         activeOpacity={1}
         style={{ flex: 1, backgroundColor: maskBgColor, ...styles[position] }}
-        onPress={!locked ? () => { setVisible(false) } : () => { }}>
+        onPress={onBgTap}>
         <TouchableOpacity activeOpacity={1}>
           <View style={{ position: "relative", ...containerStyle, backgroundColor: bgColor, ...style }}>
             {children}
