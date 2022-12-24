@@ -8,12 +8,14 @@ import Dialog from "../ui/Dialog";
 export default (props) => {
   const { title } = props.route.params;
   const dialog = useRef(null);
+  const [show, setShow] = useState(false);
   const [type, setType] = useState("confirm");
   const [showTitle, setShowTitle] = useState(true);
   const handleList = (type, showTitle) => {
     setType(type);
     setShowTitle(!showTitle);
-    dialog.current.show();
+    setShow(true)
+    // dialog.current.show();
   };
   const handleFunShow = () => {
     $dialog.showDialog({
@@ -66,7 +68,7 @@ export default (props) => {
         <List type={2} title="修改按钮文字和颜色" onPress={handleFunShow2} />
         <List type={2} title="设置子节点" onPress={handleFunShow3} />
       </View>
-      <Dialog ref={dialog} type={type} showTitle={showTitle} content={type === "alert" ? "这个是提示框" : "这个是确认框"} />
+      <Dialog ref={dialog} show={show} type={type} showTitle={showTitle} content={type === "alert" ? "这个是提示框" : "这个是确认框"} />
     </View>
   );
 };

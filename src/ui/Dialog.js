@@ -5,6 +5,7 @@ import { Color } from "./utils/config";
 
 export default class Dialog extends Component {
   static propTypes = {
+    show: PropTypes.bool,
     type: PropTypes.oneOf(["alert", "confirm"]),
     locked: PropTypes.bool,
     showTitle: PropTypes.bool,
@@ -18,6 +19,7 @@ export default class Dialog extends Component {
     confirmColor: PropTypes.string,
   }
   static defaultProps = {
+    show: false,
     type: "alert",
     locked: true,
     showTitle: true,
@@ -33,7 +35,7 @@ export default class Dialog extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: false,
+      visible: props.show,
       locked: props.locked,
       type: props.type,
       title: props.title,
@@ -50,6 +52,7 @@ export default class Dialog extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (JSON.stringify(this.props) !== JSON.stringify(prevProps)) {
       this.setState({
+        visible: this.props.show,
         type: this.props.type,
         locked: this.props.locked,
         title: this.props.title,
