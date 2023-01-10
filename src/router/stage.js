@@ -13,20 +13,22 @@ import ToastPage from "../pages/ToastPage";
 import DialogPage from "../pages/DialogPage";
 import RadioPage from "../pages/RadioPage";
 import CheckboxPage from "../pages/CheckboxPage";
+import LoadmorePage from "../pages/LoadmorePage";
 
 const Stack = createNativeStackNavigator();
 export default () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name='TabBar' component={TabBar} />
-        <Stack.Screen name="ButtonPage" component={ButtonPage} initialParams={{ title: 'Button' }} />
-        <Stack.Screen name="IconPage" component={IconPage} initialParams={{ title: 'Icon' }} />
-        <Stack.Screen name="PopupPage" component={PopupPage} initialParams={{ title: 'Popup' }} />
-        <Stack.Screen name="ToastPage" component={ToastPage} initialParams={{ title: 'Toast' }} />
-        <Stack.Screen name="DialogPage" component={DialogPage} initialParams={{ title: 'Dialog' }} />
-        <Stack.Screen name="RadioPage" component={RadioPage} initialParams={{ title: 'Radio' }} />
-        <Stack.Screen name="CheckboxPage" component={CheckboxPage} initialParams={{ title: 'Checkbox' }} />
+        <Stack.Screen name="TabBar" component={TabBar} />
+        <Stack.Screen name="ButtonPage" component={ButtonPage} initialParams={{ title: "Button" }} />
+        <Stack.Screen name="IconPage" component={IconPage} initialParams={{ title: "Icon" }} />
+        <Stack.Screen name="PopupPage" component={PopupPage} initialParams={{ title: "Popup" }} />
+        <Stack.Screen name="ToastPage" component={ToastPage} initialParams={{ title: "Toast" }} />
+        <Stack.Screen name="DialogPage" component={DialogPage} initialParams={{ title: "Dialog" }} />
+        <Stack.Screen name="RadioPage" component={RadioPage} initialParams={{ title: "Radio" }} />
+        <Stack.Screen name="CheckboxPage" component={CheckboxPage} initialParams={{ title: "Checkbox" }} />
+        <Stack.Screen name="LoadmorePage" component={LoadmorePage} initialParams={{ title: "Loadmore" }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

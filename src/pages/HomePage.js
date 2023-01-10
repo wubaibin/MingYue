@@ -22,12 +22,18 @@ export default (props) => {
         <List title="图标 Icon" onPress={() => { handleList("IconPage") }}></List>
         <Text style={Title}>视图</Text>
         <List title="弹出层 Popup" onPress={() => { handleList("PopupPage") }}></List>
+        <List title="页底提示 Loadmore" onPress={() => { handleList("LoadmorePage") }}></List>
         <Text style={Title}>操作反馈</Text>
         <List title="轻提示 Toast" onPress={() => { handleList("ToastPage") }}></List>
         <List title="模态框 Dialog" onPress={() => { handleList("DialogPage") }}></List>
+        <Text style={Title}>导航</Text>
+        <List title="选项卡 Segment" onPress={() => { handleList("RadioPage") }}></List>
+        <List title="标签页 Tabs" onPress={() => { handleList("RadioPage") }}></List>
+        <List title="导航栏 NavBar" onPress={() => { handleList("RadioPage") }}></List>
         <Text style={Title}>表单</Text>
         <List title="单选框 Radio" onPress={() => { handleList("RadioPage") }}></List>
         <List title="复选框 Checkbox" onPress={() => { handleList("CheckboxPage") }}></List>
+        <List title="图片选择器 ImagePicker" onPress={() => { handleList("CheckboxPage") }}></List>
       </ScrollView>
     </View>
   )
