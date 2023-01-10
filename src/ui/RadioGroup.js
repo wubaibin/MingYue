@@ -2,7 +2,7 @@
  * @description: 单选框组
  * @author: wubaibin
  */
-import { Text, StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Radio from "./Radio";
@@ -10,7 +10,6 @@ import Radio from "./Radio";
 RadioGroup.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   children: PropTypes.array.isRequired,
-  // 排列方向 horizontal 水平 vertical 垂直
   direction: PropTypes.oneOf(["horizontal", "vertical"]),
   style: PropTypes.object,
 }
@@ -26,7 +25,12 @@ export default function RadioGroup(props) {
   useEffect(() => {
     let list = [];
     children.forEach((item, index) => {
-      list.push({ title: item.props.children, name: item.props.name, active: false });
+      list.push({
+        title: item.props.children,
+        name: item.props.name,
+        active: false,
+        props: item.props
+      });
       if (!value) {
         list[0].active = true;
       }
@@ -57,11 +61,7 @@ export default function RadioGroup(props) {
         !children ? <></> :
           list.map((item, index) => (
             <View style={index === 0 ? {} : direction === "horizontal" ? { marginLeft: 24 } : { marginTop: 12 }} key={index}>
-              <Radio
-                {...children[index].props}
-                active={item.active}
-                onPress={() => { listTap(item, index) }}
-              >
+              <Radio {...item.props} active={item.active} onPress={() => { listTap(item, index) }}>
                 {item.title}
               </Radio>
             </View>
@@ -70,5 +70,3 @@ export default function RadioGroup(props) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

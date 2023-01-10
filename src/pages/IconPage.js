@@ -7,7 +7,7 @@ import Icon from "../ui/icon";
 export default (props) => {
   const { title } = props.route.params;
   return (
-    <View style={{ flex: 1, backgroundColor: '#f7f8fa' }}>
+    <View style={{ flex: 1, backgroundColor: "#f7f8fa" }}>
       <NavBar title={title}></NavBar>
       <View style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>基础用法</Text>

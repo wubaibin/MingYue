@@ -18,8 +18,8 @@ Radio.propTypes = {
   disabledColor: PropTypes.string,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
-  // 是否禁用单选框文本点击
   labelDisabled: PropTypes.bool,
+  style: PropTypes.object,
 }
 Radio.defaultProps = {
   iconSize: 18,
@@ -32,16 +32,17 @@ Radio.defaultProps = {
   active: false,
   disabled: false,
   labelDisabled: false,
+  style: {},
 }
 
 export default function Radio(props) {
-  const { iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, active, disabled, labelDisabled, onPress } = props;
+  const { iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, active, disabled, labelDisabled, style, onPress } = props;
 
   return (
     <>
       {
         labelDisabled ?
-          <View style={styles.container}>
+          <View style={[styles.container, style]}>
             <TouchableOpacity activeOpacity={1} onPress={disabled ? () => { } : () => { onPress() }}>
               <Icon
                 name={active ? iconSelect : icon}
@@ -51,7 +52,7 @@ export default function Radio(props) {
             </TouchableOpacity>
             <Text style={[styles.title, { color: disabled ? disabledColor : color }]}>{props.children}</Text>
           </View> :
-          <TouchableOpacity activeOpacity={1} style={styles.container} onPress={disabled ? () => { } : () => { onPress() }}>
+          <TouchableOpacity activeOpacity={1} style={[styles.container, style]} onPress={disabled ? () => { } : () => { onPress() }}>
             <Icon
               name={active ? iconSelect : icon}
               size={iconSize}

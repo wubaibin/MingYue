@@ -14,7 +14,7 @@ export default (props) => {
     Route.navigate(path);
   }
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+    <View style={{ flex: 1, backgroundColor: "#ffffff" }}>
       <NavBar title={title} left={<View></View>}></NavBar>
       <ScrollView style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>基础</Text>
@@ -27,7 +27,7 @@ export default (props) => {
         <List title="模态框 Dialog" onPress={() => { handleList("DialogPage") }}></List>
         <Text style={Title}>表单</Text>
         <List title="单选框 Radio" onPress={() => { handleList("RadioPage") }}></List>
-        
+        <List title="复选框 Checkbox" onPress={() => { handleList("CheckboxPage") }}></List>
       </ScrollView>
     </View>
   )

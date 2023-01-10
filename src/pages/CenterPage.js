@@ -5,7 +5,7 @@ import NavBar from "../ui/NavBar";
 export default (props) => {
   const { title } = props.route.params;
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+    <View style={{ flex: 1, backgroundColor: "#ffffff" }}>
       <NavBar title={title} left={<View></View>}></NavBar>
     </View>
   )
