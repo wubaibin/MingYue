@@ -14,7 +14,7 @@ const TABS = {
       tabBarLabel: '首页',
       headerShown: false,
       tabBarIcon: ({ color }) => (
-        <Icon size={20} color={color} name={'ic_home'} />
+        <Icon size={20} color={color} name={'home'} />
       )
     }
   },
@@ -24,7 +24,7 @@ const TABS = {
       tabBarLabel: '我的',
       headerShown: false,
       tabBarIcon: ({ color }) => (
-        <Icon size={20} color={color} name={'ic_usercentre'} />
+        <Icon size={20} color={color} name={'user'} />
       )
     }
   }

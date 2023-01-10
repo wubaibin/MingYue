@@ -27,7 +27,7 @@ export default (props) => {
         <Text style={Title}>加载状态</Text>
         <Button loading size="large" style={styles.btn}>加载中</Button>
         <Text style={Title}>图标按钮</Text>
-        <Button size="large" icon="ic_refresh" style={styles.btn}>图标按钮</Button>
+        <Button size="large" icon="refresh" style={styles.btn}>图标按钮</Button>
         <Text style={Title}>自定义按钮长宽 字体大小 背景颜色</Text>
         <Button width={200} height={50} fontSize={20} bgColor="red" style={styles.btn}>自定义按钮</Button>
         <Button plain width={200} height={50} fontSize={20} borderColor="red" color="red" style={styles.btn}>自定义按钮</Button>

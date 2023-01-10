@@ -1,3 +1,7 @@
+/**
+ * @description: 轻提示
+ * @author: wubaibin
+ */
 import { Text, StyleSheet, View, TouchableOpacity, Modal, ActivityIndicator } from "react-native";
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import Icon from "./icon";

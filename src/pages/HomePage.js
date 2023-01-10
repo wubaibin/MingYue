@@ -25,6 +25,9 @@ export default (props) => {
         <Text style={Title}>操作反馈</Text>
         <List title="轻提示 Toast" onPress={() => { handleList("ToastPage") }}></List>
         <List title="模态框 Dialog" onPress={() => { handleList("DialogPage") }}></List>
+        <Text style={Title}>表单</Text>
+        <List title="单选框 Radio" onPress={() => { handleList("RadioPage") }}></List>
+        
       </ScrollView>
     </View>
   )

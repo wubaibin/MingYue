@@ -11,6 +11,7 @@ import IconPage from '../pages/IconPage';
 import PopupPage from '../pages/PopupPage';
 import ToastPage from '../pages/ToastPage';
 import DialogPage from '../pages/DialogPage';
+import RadioPage from '../pages/RadioPage';
 
 const Stack = createNativeStackNavigator();
 export default () => {
@@ -23,6 +24,7 @@ export default () => {
         <Stack.Screen name="PopupPage" component={PopupPage} initialParams={{ title: 'Popup' }} />
         <Stack.Screen name="ToastPage" component={ToastPage} initialParams={{ title: 'Toast' }} />
         <Stack.Screen name="DialogPage" component={DialogPage} initialParams={{ title: 'Dialog' }} />
+        <Stack.Screen name="RadioPage" component={RadioPage} initialParams={{ title: 'Radio' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

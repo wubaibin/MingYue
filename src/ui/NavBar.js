@@ -4,7 +4,7 @@
  */
 import { Text, StyleSheet, View, StatusBar, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Color, Config } from "./utils/config";
 import StringRegular from './utils/string';

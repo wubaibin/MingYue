@@ -4,7 +4,7 @@
  */
 import { Text, StyleSheet, View, TouchableWithoutFeedback, TouchableHighlight, ActivityIndicator } from "react-native";
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Color } from "./utils/config";
 import Icon from "./icon";
 
@@ -98,7 +98,7 @@ const ButtonView = (props) => {
           <Text style={[
             styles['text' + size],
             { ...fontSize ? { fontSize } : {} },
-            { color: color !== "#fff" ? color : disabled ? disabledColor : plain ? plainColor : "#fff" },
+            { color: disabled ? disabledColor : plain ? plainColor : color },
           ]}>
             {children}
           </Text> :

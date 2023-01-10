@@ -1,6 +1,10 @@
+/**
+ * @description: 弹出层
+ * @author: wubaibin
+ */
 import { StyleSheet, View, Modal, TouchableOpacity, Dimensions } from 'react-native';
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Icon from './icon';
 
@@ -53,10 +57,10 @@ const Popup = forwardRef((props, ref) => {
   }));
   const onBgTap = () => {
     if (locked) {
-      this.props.onBgTap && this.props.onBgTap("bg");
-      return
+      props.onBgTap && props.onBgTap("bg");
+      return;
     }
-    this.props.onBgTap && this.props.onBgTap("bg");
+    props.onBgTap && props.onBgTap("bg");
     setVisible(false);
   }
   return (

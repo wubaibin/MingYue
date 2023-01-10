@@ -12,18 +12,18 @@ export default (props) => {
       <View style={{ paddingHorizontal: 18 }}>
         <Text style={Title}>基础用法</Text>
         <View style={styles.content}>
-          <Icon name="ic_refresh"></Icon>
+          <Icon name="refresh"></Icon>
           <Icon name="arrow"></Icon>
         </View>
         <Text style={Title}>图标颜色</Text>
         <View style={styles.content}>
-          <Icon name="ic_refresh" color="#1989fa"></Icon>
+          <Icon name="refresh" color="#1989fa"></Icon>
           <Icon name="arrow" color="#ee0a24"></Icon>
         </View>
         <Text style={Title}>图标大小</Text>
         <View style={styles.content}>
-          <Icon name="ic_refresh" size={20}></Icon>
-          <Icon name="ic_refresh" size={24} style={{ marginLeft: 12 }}></Icon>
+          <Icon name="refresh" size={20}></Icon>
+          <Icon name="refresh" size={24} style={{ marginLeft: 12 }}></Icon>
         </View>
       </View>
     </View>
