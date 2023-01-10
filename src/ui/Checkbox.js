@@ -20,6 +20,7 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   labelDisabled: PropTypes.bool,
   style: PropTypes.object,
+  titleStyle: PropTypes.object,
   isGroup: PropTypes.bool,
 }
 Checkbox.defaultProps = {
@@ -34,11 +35,12 @@ Checkbox.defaultProps = {
   disabled: false,
   labelDisabled: false,
   style: {},
+  titleStyle: {},
   isGroup: false,
 }
 
 export default function Checkbox(props) {
-  const { active, iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, disabled, labelDisabled, onChange, onPress, style } = props;
+  const { active, iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, disabled, labelDisabled, onChange, onPress, style, titleStyle } = props;
   const [checked, setChecked] = useState(active);
 
   useEffect(() => {
@@ -73,7 +75,7 @@ export default function Checkbox(props) {
               size={iconSize}
               color={disabled ? disabledColor : checked ? iconSelectColor : iconColor}
             ></Icon>
-            <Text style={[styles.title, { color: disabled ? disabledColor : color }]}>{props.children}</Text>
+            <Text style={[styles.title, { color: disabled ? disabledColor : color }, titleStyle]}>{props.children}</Text>
           </TouchableOpacity>
       }
     </>

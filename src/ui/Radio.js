@@ -20,6 +20,7 @@ Radio.propTypes = {
   disabled: PropTypes.bool,
   labelDisabled: PropTypes.bool,
   style: PropTypes.object,
+  titleStyle: PropTypes.object,
 }
 Radio.defaultProps = {
   iconSize: 18,
@@ -33,10 +34,11 @@ Radio.defaultProps = {
   disabled: false,
   labelDisabled: false,
   style: {},
+  titleStyle: {}
 }
 
 export default function Radio(props) {
-  const { iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, active, disabled, labelDisabled, style, onPress } = props;
+  const { iconSize, icon, iconSelect, color, disabledColor, iconColor, iconSelectColor, active, disabled, labelDisabled, style, titleStyle, onPress } = props;
 
   return (
     <>
@@ -58,7 +60,7 @@ export default function Radio(props) {
               size={iconSize}
               color={disabled ? disabledColor : active ? iconSelectColor : iconColor}
             ></Icon>
-            <Text style={[styles.title, { color: disabled ? disabledColor : color }]}>{props.children}</Text>
+            <Text style={[styles.title, { color: disabled ? disabledColor : color }, titleStyle]}>{props.children}</Text>
           </TouchableOpacity>
       }
     </>
