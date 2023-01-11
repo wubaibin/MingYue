@@ -16,11 +16,13 @@ const Toast = forwardRef((props, ref) => {
   const backgroundColor = "rgba(0, 0, 0, 0.8)";
   const color = "#ffffff";
   let timer = null;
+
   useEffect(() => {
     return () => {
-      timer && clearTimeout(Number(timer));
+      timer && clearTimeout(timer);
     }
-  }, [])
+  }, []);
+
   useImperativeHandle(ref, () => ({
     showToast: (params) => {
       const { title, icon = "", duration = 2000, mask = true } = params;
@@ -30,7 +32,7 @@ const Toast = forwardRef((props, ref) => {
       setMask(mask);
       timer = setTimeout(() => {
         setVisible(false);
-        timer && clearTimeout(Number(timer));
+        timer && clearTimeout(timer);
       }, duration)
     },
     showLoading: (params) => {
@@ -44,10 +46,12 @@ const Toast = forwardRef((props, ref) => {
       hide();
     },
   }));
+
   const hide = () => {
     setVisible(false);
     setLoading(false);
   }
+  
   return (
     <Modal visible={visible} transparent={true} animationType="fade">
       <TouchableOpacity
