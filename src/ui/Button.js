@@ -52,12 +52,12 @@ export default function Button(props) {
     <View style={[size === "long" ? {} : { flexDirection: 'row' }, style]}>
       {
         disabled ?
-          <TouchableWithoutFeedback onPress={() => { onPress() }}>
+          <TouchableWithoutFeedback onPress={() => { onPress && onPress() }}>
             <View>
               <ButtonView {...props}></ButtonView>
             </View>
           </TouchableWithoutFeedback> :
-          <TouchableHighlight style={[styles[shape]]} onPress={() => { onPress() }}>
+          <TouchableHighlight style={[styles[shape]]} onPress={() => { onPress && onPress() }}>
             <View>
               <ButtonView {...props}></ButtonView>
             </View>
