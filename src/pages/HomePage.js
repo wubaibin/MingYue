@@ -28,7 +28,7 @@ export default (props) => {
         <List title="模态框 Dialog" onPress={() => { handleList("DialogPage") }}></List>
         <Text style={Title}>导航</Text>
         <List title="选项卡 Segment" onPress={() => { handleList("SegmentPage") }}></List>
-        <List title="标签页 Tabs" onPress={() => { handleList("RadioPage") }}></List>
+        <List title="标签页 Tabs" onPress={() => { handleList("TabPage") }}></List>
         <List title="导航栏 NavBar" onPress={() => { handleList("RadioPage") }}></List>
         <Text style={Title}>表单</Text>
         <List title="单选框 Radio" onPress={() => { handleList("RadioPage") }}></List>
