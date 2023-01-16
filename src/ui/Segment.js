@@ -20,8 +20,11 @@ Segment.propTypes = {
   activeColor: PropTypes.string,
   inactiveStyle: PropTypes.object,
   activeStyle: PropTypes.object,
+  inactiveTilteStyle: PropTypes.object,
+  activeTitleStyle: PropTypes.object,
   lineStyle: PropTypes.object,
   style: PropTypes.object,
+  containerStyle: PropTypes.object,
 }
 
 Segment.defaultProps = {
@@ -37,8 +40,11 @@ Segment.defaultProps = {
   activeColor: "#323233",
   inactiveStyle: {},
   activeStyle: {},
+  inactiveTilteStyle: {},
+  activeTitleStyle: {},
   lineStyle: {},
-  style: {}
+  style: {},
+  containerStyle: {}
 }
 
 export default function Segment(props) {
@@ -129,13 +135,13 @@ export default function Segment(props) {
         horizontal={true}
         alwaysBounceHorizontal={false}
         showsHorizontalScrollIndicator={false}
-        style={{ flex: 1 }}
+        style={{ flex: 1, ...props.containerStyle }}
         ref={scrollRef}
         onScrollBeginDrag={() => { hasLine && setFixedLine(true) }}
       >
         {
           list.map((item, index) => (
-            <TouchableOpacity key={index} onPress={() => { listTap(index) }}>
+            <TouchableOpacity activeOpacity={1} key={index} onPress={() => { listTap(index) }}>
               <SegmentItem
                 {...item.props}
                 active={item.active}
@@ -145,6 +151,8 @@ export default function Segment(props) {
                 activeColor={props.activeColor}
                 inactiveStyle={props.inactiveStyle}
                 activeStyle={props.activeStyle}
+                inactiveTilteStyle={props.inactiveTilteStyle}
+                activeTilteStyle={props.activeTilteStyle}
                 lineStyle={{
                   ...styles.line,
                   width: lineWidth,

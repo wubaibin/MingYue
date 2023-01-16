@@ -9,6 +9,8 @@ SegmentItem.propTypes = {
   activeColor: PropTypes.string,
   inactiveStyle: PropTypes.object,
   activeStyle: PropTypes.object,
+  inactiveTilteStyle: PropTypes.object,
+  activeTitleStyle: PropTypes.object,
 }
 
 SegmentItem.defaultProps = {
@@ -16,17 +18,19 @@ SegmentItem.defaultProps = {
   activeColor: "#323233",
   inactiveStyle: {},
   activeStyle: {},
+  inactiveTilteStyle: {},
+  activeTitleStyle: {}
 }
 
 export default function SegmentItem(props) {
-  const { active, width, lineStyle, showLine, inactiveColor, activeColor, inactiveStyle, activeStyle } = props;
+  const { active, width, lineStyle, showLine } = props;
 
   return (
-    <View style={[styles.container, { width }]}>
+    <View style={[styles.container, { width }, active ? props.activeStyle : props.inactiveStyle]}>
       <Text style={[
         active ?
-          { fontSize: 13, color: activeColor, fontWeight: "500", ...activeStyle } :
-          { fontSize: 13, color: inactiveColor, ...inactiveStyle }
+          { fontSize: 13, color: props.activeColor, fontWeight: "500", ...props.inactiveTilteStyle } :
+          { fontSize: 13, color: props.inactiveColor, ...props.activeTilteStyle }
       ]}>
         {props.children}
       </Text>
