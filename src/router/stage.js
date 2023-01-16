@@ -15,6 +15,7 @@ import RadioPage from "../pages/RadioPage";
 import CheckboxPage from "../pages/CheckboxPage";
 import LoadmorePage from "../pages/LoadmorePage";
 import SegmentPage from "../pages/SegmentPage";
+import TabPage from '../pages/TabPage';
 
 const Stack = createNativeStackNavigator();
 export default () => {
@@ -31,6 +32,7 @@ export default () => {
         <Stack.Screen name="RadioPage" component={RadioPage} initialParams={{ title: "Radio" }} />
         <Stack.Screen name="CheckboxPage" component={CheckboxPage} initialParams={{ title: "Checkbox" }} />
         <Stack.Screen name="SegmentPage" component={SegmentPage} initialParams={{ title: "SegmentPage" }} />
+        <Stack.Screen name="TabPage" component={TabPage} initialParams={{ title: "TabPage" }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
