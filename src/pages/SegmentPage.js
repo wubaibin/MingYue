@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View } from "react-native";
 import React, { useState, useEffect } from "react";
-import NavBar from "../ui/NavBar"
+import NavBar from "../ui/NavBar";
 import Segment from "../ui/Segment";
 import SegmentItem from "../ui/SegmentItem";
 import { Color } from "../ui/utils/config";
