@@ -68,7 +68,7 @@ export default function Segment(props) {
     let listIndex = 0;
     props.children.forEach((item, index) => {
       const name = item.props.name;
-      list.push({ name, props: item.props, active: false });
+      list.push({ name, props: item.props, active: false, disabled: !!item.props.disabled });
       if (value && name === value) {
         list[index].active = true;
         listIndex = index;
@@ -82,12 +82,16 @@ export default function Segment(props) {
     setline(listIndex);
   }
 
-  const listTap = (index) => {
+  const listTap = (index, item) => {
+    if (item.disabled) {
+      onChange && onChange({ name: value[index].name, index });
+      return;
+    }
     let value = [...list];
-    value.map((item, i) => {
-      item.active = false;
+    value.map((l, i) => {
+      l.active = false;
       if (index === i) {
-        item.active = true;
+        l.active = true;
       }
     })
     setList(value);
@@ -141,7 +145,7 @@ export default function Segment(props) {
       >
         {
           list.map((item, index) => (
-            <TouchableOpacity activeOpacity={1} key={index} onPress={() => { listTap(index) }}>
+            <TouchableOpacity activeOpacity={1} key={index} onPress={() => { listTap(index, item) }}>
               <SegmentItem
                 {...item.props}
                 active={item.active}
@@ -179,7 +183,8 @@ export default function Segment(props) {
               bottom: props.bottom,
               backgroundColor: props.lineBgColor,
               ...props.lineStyle
-            }}></Animated.View>
+            }}>
+          </Animated.View>
       }
     </View>
   )
