@@ -5,7 +5,10 @@ import PropTypes from "prop-types";
 SegmentItem.propTypes = {
   active: PropTypes.bool,
   disabled: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   width: PropTypes.number,
+  fontSize: PropTypes.number,
   inactiveColor: PropTypes.string,
   activeColor: PropTypes.string,
   disabledColor: PropTypes.string,
@@ -19,6 +22,7 @@ SegmentItem.propTypes = {
 
 SegmentItem.defaultProps = {
   disabled: false,
+  fontSize: 13,
   inactiveColor: "#646566",
   activeColor: "#323233",
   disabledColor: "#c8c9cc",
@@ -31,15 +35,15 @@ SegmentItem.defaultProps = {
 }
 
 export default function SegmentItem(props) {
-  const { active, width, lineStyle, showLine, disabled } = props;
+  const { active, width, lineStyle, showLine, disabled, fontSize } = props;
 
   return (
     <View style={[styles.container, { width }, active ? props.activeStyle : props.inactiveStyle, disabled ? props.disabledStyle : {}]}>
       <Text style={[
         active ?
-          { fontSize: 13, color: props.activeColor, fontWeight: "500", ...props.inactiveTilteStyle } :
-          { fontSize: 13, color: props.inactiveColor, ...props.activeTilteStyle },
-        disabled ? { fontSize: 13, color: props.disabledColor, ...props.disabledTitleStyle } : {}
+          { fontSize, color: props.activeColor, fontWeight: "500", ...props.inactiveTilteStyle } :
+          { fontSize, color: props.inactiveColor, ...props.activeTilteStyle },
+        disabled ? { fontSize, color: props.disabledColor, ...props.disabledTitleStyle } : {}
       ]}>
         {props.children}
       </Text>

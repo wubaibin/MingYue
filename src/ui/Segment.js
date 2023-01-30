@@ -9,6 +9,7 @@ Segment.propTypes = {
   children: PropTypes.array.isRequired,
   width: PropTypes.number,
   height: PropTypes.number,
+  fontSize: PropTypes.number,
   bgColor: PropTypes.string,
   hasLine: PropTypes.bool,
   lineWidth: PropTypes.number,
@@ -30,6 +31,7 @@ Segment.propTypes = {
 Segment.defaultProps = {
   bgColor: "#ffffff",
   height: 50,
+  fontSize: 13,
   hasLine: true,
   lineWidth: 40,
   lineHeight: 3,
@@ -67,8 +69,16 @@ export default function Segment(props) {
     let list = [];
     let listIndex = 0;
     props.children.forEach((item, index) => {
-      const name = item.props.name;
-      list.push({ name, props: item.props, active: false, disabled: !!item.props.disabled });
+      if (!item.props) {
+        return;
+      }
+      const { name, disabled, ...itemProps } = item.props;
+      list.push({
+        name,
+        disabled: !!disabled,
+        active: false,
+        props: itemProps,
+      });
       if (value && name === value) {
         list[index].active = true;
         listIndex = index;
@@ -149,7 +159,9 @@ export default function Segment(props) {
               <SegmentItem
                 {...item.props}
                 active={item.active}
+                disabled={item.disabled}
                 width={listWidth}
+                fontSize={props.fontSize}
                 showLine={fixedLine && hasLine}
                 inactiveColor={props.inactiveColor}
                 activeColor={props.activeColor}
