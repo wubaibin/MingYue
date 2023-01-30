@@ -14,7 +14,6 @@ import DialogPage from "../pages/DialogPage";
 import RadioPage from "../pages/RadioPage";
 import CheckboxPage from "../pages/CheckboxPage";
 import LoadmorePage from "../pages/LoadmorePage";
-import SegmentPage from "../pages/SegmentPage";
 import TabsPage from '../pages/TabsPage';
 import NavBarPage from '../pages/NavBarPage';
 
@@ -32,7 +31,6 @@ export default () => {
         <Stack.Screen name="DialogPage" component={DialogPage} initialParams={{ title: "Dialog" }} />
         <Stack.Screen name="RadioPage" component={RadioPage} initialParams={{ title: "Radio" }} />
         <Stack.Screen name="CheckboxPage" component={CheckboxPage} initialParams={{ title: "Checkbox" }} />
-        <Stack.Screen name="SegmentPage" component={SegmentPage} initialParams={{ title: "Segment" }} />
         <Stack.Screen name="TabsPage" component={TabsPage} initialParams={{ title: "Tabs" }} />
         <Stack.Screen name="NavBarPage" component={NavBarPage} initialParams={{ title: "NavBar" }} />
       </Stack.Navigator>
