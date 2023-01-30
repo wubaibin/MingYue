@@ -12,7 +12,7 @@ import Route from "../router/route";
 
 NavBar.propTypes = {
   // 标题
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   // 标题长度
   titleLength: PropTypes.number,
   // 标题大小
@@ -73,9 +73,13 @@ export default function NavBar(props) {
               </>
           }
         </View>
-        <Text style={{ fontSize: titleSize, color: titleColor, fontWeight: '600', ...titleStyle }}>
-          {StringRegular.ellipsis(title, titleLength)}
-        </Text>
+        {
+          typeof (title) === "string" ?
+            <Text style={{ fontSize: titleSize, color: titleColor, fontWeight: '600', ...titleStyle }}>
+              {StringRegular.ellipsis(title, titleLength)}
+            </Text> :
+            <>{title}</>
+        }
         <View style={styles.rightContainer}>
           {
             !right ? <></> : <>{right}</>
