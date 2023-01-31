@@ -98,7 +98,7 @@ export default class Dialog extends Component {
       confirmColor,
       contentColor,
       success
-    })
+    });
   }
   show = () => {
     this.setState({
@@ -141,7 +141,7 @@ export default class Dialog extends Component {
     this.props.onConfirm("confirm")
   }
   onBgTap = () => {
-    if (locked) {
+    if (this.props.locked) {
       this.props.onBgTap && this.props.onBgTap("bg");
       return;
     }
@@ -150,13 +150,14 @@ export default class Dialog extends Component {
   }
   render() {
     const { showTitle } = this.props;
-    const { visible, title, titleColor, type, content, contentColor, cancelText, cancelColor, confirmText, confirmColor, locked } = this.state
+    const { visible, title, titleColor, type, content, contentColor, cancelText, cancelColor, confirmText, confirmColor } = this.state
     const width = 320;
     const btnHeight = 50;
-    const bgColor = '#ffffff';
-    const maskBgColor = 'rgba(0, 0, 0, 0.5)';
+    const bgColor = "#ffffff";
+    const maskBgColor = "rgba(0, 0, 0, 0.5)";
     const radius = 8;
     const contentType = typeof (content);
+    
     return (
       <Modal visible={visible} transparent={true} presentationStyle="overFullScreen" animationType="fade">
         <TouchableOpacity activeOpacity={1} style={[styles.maskContainer, { backgroundColor: maskBgColor }]} onPress={this.onBgTap}>
@@ -175,7 +176,7 @@ export default class Dialog extends Component {
             <View style={styles.line} />
             <View style={[styles.btnContainer, { height: btnHeight }]}>
               {
-                type === 'alert' ? <></> :
+                type === "alert" ? <></> :
                   <>
                     <TouchableHighlight
                       style={{ flex: 1, width: width / 2 - 1, height: btnHeight, backgroundColor: bgColor, borderBottomLeftRadius: radius }}
@@ -191,7 +192,7 @@ export default class Dialog extends Component {
               <TouchableHighlight
                 style={[
                   styles.confirm,
-                  type === 'alert' ? { borderBottomLeftRadius: radius } : { borderBottomRightRadius: radius }
+                  type === "alert" ? { borderBottomLeftRadius: radius, borderBottomRightRadius: radius } : { borderBottomRightRadius: radius }
                 ]}
                 onPress={this.onConfirm}
               >
@@ -199,9 +200,9 @@ export default class Dialog extends Component {
                   style={[
                     styles.confirm,
                     { height: btnHeight, backgroundColor: bgColor, borderBottomRightRadius: radius },
-                    type === 'alert' ? { borderBottomLeftRadius: radius } : {}
+                    type === "alert" ? { borderBottomLeftRadius: radius } : {}
                   ]}>
-                  <Text style={{ color: confirmColor, fontWeight: '600', fontSize: 16 }}>
+                  <Text style={{ color: confirmColor, fontWeight: "600", fontSize: 16 }}>
                     {confirmText}
                   </Text>
                 </View>
