@@ -14,8 +14,9 @@ import DialogPage from "../pages/DialogPage";
 import RadioPage from "../pages/RadioPage";
 import CheckboxPage from "../pages/CheckboxPage";
 import LoadmorePage from "../pages/LoadmorePage";
-import TabsPage from '../pages/TabsPage';
-import NavBarPage from '../pages/NavBarPage';
+import TabsPage from "../pages/TabsPage";
+import NavBarPage from "../pages/NavBarPage";
+import ImagePickerPage from "../pages/ImagePickerPage";
 
 const Stack = createNativeStackNavigator();
 export default () => {
@@ -33,6 +34,7 @@ export default () => {
         <Stack.Screen name="CheckboxPage" component={CheckboxPage} initialParams={{ title: "Checkbox" }} />
         <Stack.Screen name="TabsPage" component={TabsPage} initialParams={{ title: "Tabs" }} />
         <Stack.Screen name="NavBarPage" component={NavBarPage} initialParams={{ title: "NavBar" }} />
+        <Stack.Screen name="ImagePickerPage" component={ImagePickerPage} initialParams={{ title: "ImagePicker" }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

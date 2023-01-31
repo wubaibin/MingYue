@@ -32,7 +32,7 @@ export default (props) => {
         <Text style={Title}>表单</Text>
         <List title="单选框 Radio" onPress={() => { handleList("RadioPage") }}></List>
         <List title="复选框 Checkbox" onPress={() => { handleList("CheckboxPage") }}></List>
-        <List title="图片选择器 ImagePicker" onPress={() => { handleList("CheckboxPage") }}></List>
+        <List title="图片选择器 ImagePicker" onPress={() => { handleList("ImagePickerPage") }}></List>
       </ScrollView>
     </View>
   )
